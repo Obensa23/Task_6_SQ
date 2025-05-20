@@ -7,8 +7,13 @@
     "test": "node run-tests.js"
   },
   "devDependencies": {
-    "eslint": "^9.0",
-    "puppeteer": "^19.7.5"
+    "chai": "^5.1.2",
+    "http-server": "^14.1.1",
+    "mocha": "^11.1.0",
+    "mocha-chrome": "^2.2.0",
+    "mocha-headless-chrome": "^4.0.0",
+    "puppeteer": "^19.7.5",
+    "eslint": "^9.0"
   }
 }
 
