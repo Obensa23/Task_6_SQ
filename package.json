@@ -1,7 +1,7 @@
 {
   "name": "roman-converter",
   "version": "1.0.0",
-  "type": "module",
+  "description": "Roman numeral converter website with tests",
   "scripts": {
     "lint": "eslint AIProgramTests/*.js",
     "test": "node run-tests.js"
