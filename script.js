@@ -1,4 +1,4 @@
-export function romanToInteger(roman) {
+var romanToInteger = function(roman) {
   const romanNumerals = {
     'I': 1, 'V': 5, 'X': 10, 'L': 50,
     'C': 100, 'D': 500, 'M': 1000
@@ -26,9 +26,9 @@ export function romanToInteger(roman) {
   }
 
   return total;
-}
+};
 
-export function integerToRoman(num) {
+var integerToRoman = function(num) {
   if (typeof num !== 'number' || isNaN(num) || num < 1 || num > 3999) {
     throw new Error('The number must be between 1 and 3999.');
   }
@@ -46,4 +46,5 @@ export function integerToRoman(num) {
   }
 
   return result;
-}
+};
+
