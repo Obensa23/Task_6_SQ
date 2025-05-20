@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman Numerals Converter</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.converter {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    font-size: 16px;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roman Numerals Converter</h1>
+
+        <div class="converter">
+            <h3>Roman to Integer</h3>
+            <label for="romanInput">Enter Roman Numeral:</label>
+            <input type="text" id="romanInput" placeholder="e.g., X, VII">
+            <button onclick="convertRomanToInt()">Convert</button>
+            <p id="romanResult"></p>
+        </div>
+
+        <div class="converter">
+            <h3>Integer to Roman</h3>
+            <label for="integerInput">Enter Integer:</label>
+            <input type="number" id="integerInput" placeholder="e.g., 10, 50">
+            <button onclick="convertIntToRoman()">Convert</button>
+            <p id="integerResult"></p>
+        </div>
+    </div>
+
+    <script>
+    function convertRomanToInt() {
+    const roman = document.getElementById('romanInput').value.toUpperCase();
+    const resultElement = document.getElementById('romanResult');
+    const romanNumerals = {
+        'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000
+    };
+    let total = 0;
+    let prevValue = 0;
+
+    // Validate the input
+    if (!/^[IVXLCDM]+$/.test(roman)) {
+        resultElement.textContent = "Invalid Roman numeral!";
+        return;
+    }
+
+    for (let i = roman.length - 1; i >= 0; i--) {
+        const currentValue = romanNumerals[roman[i]];
+        if (currentValue < prevValue) {
+            total -= currentValue;
+        } else {
+            total += currentValue;
+        }
+        prevValue = currentValue;
+    }
+    
+    resultElement.textContent = "Integer: " + total;
+}
+
+// Función para convertir un número entero a numeral romano
+function convertIntToRoman() {
+    let num = parseInt(document.getElementById('integerInput').value);  // Obtiene el valor como número
+    const resultElement = document.getElementById('integerResult');
+
+    // Validación de que el número esté en el rango correcto
+    if (isNaN(num) || num < 1 || num > 3999) {
+        resultElement.textContent = "Please, enter a valid number between 1 and 3999.";
+        return;
+    }
+
+    // Definición de los valores y símbolos romanos
+    const romanNumerals = [
+        ['M', 1000], ['CM', 900], ['D', 500], ['CD', 400],
+        ['C', 100], ['XC', 90], ['L', 50], ['XL', 40],
+        ['X', 10], ['IX', 9], ['V', 5], ['IV', 4], ['I', 1]
+    ];
+
+    let result = '';  // Inicializa el resultado como una cadena vacía
+
+    // Recorre el arreglo de valores romanos y agrega el símbolo al resultado
+    for (let [symbol, value] of romanNumerals) {
+        // Agrega tantas veces el símbolo como sea necesario
+        let count = Math.floor(num / value);
+        result += symbol.repeat(count);  // Repite el símbolo 'count' veces
+        num %= value;  // Actualiza num al residuo de la división
+    }
+
+    // Muestra el resultado
+    resultElement.textContent = "Roman Number: " + result;
+}
+    </script>
+</body>
+</html>
