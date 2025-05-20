@@ -1,0 +1,12 @@
+{
+  "name": "roman-converter",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint AIProgramTests/*.js",
+    "test": "echo \"Tests run in browser; no automated runner yet\""
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  }
+}
