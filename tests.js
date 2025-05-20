@@ -1,5 +1,3 @@
-import { romanToInteger, integerToRoman } from './script.js';
-
 const expect = chai.expect;
 
 describe('romanToInteger', function() {
