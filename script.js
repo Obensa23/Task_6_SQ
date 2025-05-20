@@ -5,7 +5,7 @@ export function romanToInteger(roman) {
   };
 
   if (!/^[IVXLCDM]+$/.test(roman)) {
-    throw new Error("Input must be a valid Roman numeral.");
+    throw new Error('Input must be a valid Roman numeral.');
   }
 
   let total = 0;
@@ -22,7 +22,7 @@ export function romanToInteger(roman) {
   }
 
   if (integerToRoman(total) !== roman.toUpperCase()) {
-    throw new Error("Input must be a valid Roman numeral.");
+    throw new Error('Input must be a valid Roman numeral.');
   }
 
   return total;
@@ -30,7 +30,7 @@ export function romanToInteger(roman) {
 
 export function integerToRoman(num) {
   if (typeof num !== 'number' || isNaN(num) || num < 1 || num > 3999) {
-    throw new Error("The number must be between 1 and 3999.");
+    throw new Error('The number must be between 1 and 3999.');
   }
 
   const romanNumerals = [
