@@ -4,9 +4,11 @@
   "type": "module",
   "scripts": {
     "lint": "eslint AIProgramTests/*.js",
-    "test": "echo \"Tests run in browser; no automated runner yet\""
+    "test": "node run-tests.js"
   },
   "devDependencies": {
-    "eslint": "^8.56.0"
+    "eslint": "^8.56.0",
+    "puppeteer": "^21.3.8"
   }
 }
+
