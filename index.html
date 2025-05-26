@@ -117,6 +117,15 @@ p {
         }
         prevValue = currentValue;
     }
+        
+    if (typeof gtag === 'function') {
+    console.log('Sending event roman_to_integer:', total);
+    gtag('event', 'roman_to_integer', {
+      'event_category': 'User Interaction',
+      'event_label': 'Roman to Integer',
+      'value': total
+    });
+  }
     
     resultElement.textContent = "Integer: " + total;
 }
@@ -147,6 +156,15 @@ function convertIntToRoman() {
         let count = Math.floor(num / value);
         result += symbol.repeat(count);  // Repite el símbolo 'count' veces
         num %= value;  // Actualiza num al residuo de la división
+    }
+
+    if (typeof gtag === 'function') {
+    console.log('Sending event integer_to_roman:', result);
+    gtag('event', 'integer_to_roman', {
+      'event_category': 'User Interaction',
+      'event_label': 'Integer to Roman',
+      'value': parseInt(document.getElementById('integerInput')?.value) || 0
+    });
     }
 
     // Muestra el resultado
