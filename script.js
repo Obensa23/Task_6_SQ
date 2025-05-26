@@ -26,6 +26,13 @@ var romanToInteger = function(roman) {
   }
 
   return total;
+
+  gtag('event', 'conversion', {
+        'event_category': 'Conversion',
+        'event_label': 'Roman to Integer',
+        'value': total
+    });
+  
 };
 
 var integerToRoman = function(num) {
@@ -46,5 +53,12 @@ var integerToRoman = function(num) {
   }
 
   return result;
+
+  gtag('event', 'conversion', {
+        'event_category': 'Conversion',
+        'event_label': 'Integer to Roman',
+        'value': parseInt(document.getElementById('integerInput').value)
+    });
+  
 };
 
