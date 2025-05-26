@@ -25,8 +25,8 @@ var romanToInteger = function(roman) {
     throw new Error('Input must be a valid Roman numeral.');
   }
   
-  console.log('Sending event roman_to_integer:', total);
   if (typeof gtag === 'function') {
+    console.log('Sending event roman_to_integer:', total);
     gtag('event', 'roman_to_integer', {
       'event_category': 'User Interaction',
       'event_label': 'Roman to Integer',
@@ -54,9 +54,8 @@ var integerToRoman = function(num) {
     num %= value;
   }
 
-  console.log('Sending event integer_to_roman:', result);
-
   if (typeof gtag === 'function') {
+    console.log('Sending event integer_to_roman:', result);
     gtag('event', 'integer_to_roman', {
       'event_category': 'User Interaction',
       'event_label': 'Integer to Roman',
@@ -66,4 +65,3 @@ var integerToRoman = function(num) {
 
   return result;
 };
-
