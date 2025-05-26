@@ -24,6 +24,9 @@ var romanToInteger = function(roman) {
   if (integerToRoman(total) !== roman.toUpperCase()) {
     throw new Error('Input must be a valid Roman numeral.');
   }
+
+  console.log('Inside romanToInteger function');
+  console.log('gtag is:', typeof gtag);
   
   if (typeof gtag === 'function') {
     console.log('Sending event roman_to_integer:', total);
@@ -53,6 +56,9 @@ var integerToRoman = function(num) {
     result += symbol.repeat(Math.floor(num / value));
     num %= value;
   }
+
+  console.log('Inside integerToRoman function');
+  console.log('gtag is:', typeof gtag);
 
   if (typeof gtag === 'function') {
     console.log('Sending event integer_to_roman:', result);
