@@ -26,8 +26,8 @@ var romanToInteger = function(roman) {
   }
 
   if (typeof gtag === 'function') {
-    gtag('event', 'conversion', {
-      'event_category': 'Conversion',
+    gtag('event', 'roman_to_integer', {
+      'event_category': 'User Interaction',
       'event_label': 'Roman to Integer',
       'value': total
     });
@@ -54,8 +54,8 @@ var integerToRoman = function(num) {
   }
 
   if (typeof gtag === 'function') {
-    gtag('event', 'conversion', {
-      'event_category': 'Conversion',
+    gtag('event', 'integer_to_roman', {
+      'event_category': 'User Interaction',
       'event_label': 'Integer to Roman',
       'value': parseInt(document.getElementById('integerInput')?.value) || 0
     });
