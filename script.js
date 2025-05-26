@@ -25,14 +25,6 @@ var romanToInteger = function(roman) {
     throw new Error('Input must be a valid Roman numeral.');
   }
 
-  if (typeof gtag === 'function') {
-    gtag('event', 'conversion', {
-      'event_category': 'Conversion',
-      'event_label': 'Roman to Integer',
-      'value': total
-    });
-  }
-
   return total;
 };
 
@@ -51,14 +43,6 @@ var integerToRoman = function(num) {
   for (let [symbol, value] of romanNumerals) {
     result += symbol.repeat(Math.floor(num / value));
     num %= value;
-  }
-
-  if (typeof gtag === 'function') {
-    gtag('event', 'conversion', {
-      'event_category': 'Conversion',
-      'event_label': 'Integer to Roman',
-      'value': parseInt(document.getElementById('integerInput')?.value) || 0
-    });
   }
 
   return result;
